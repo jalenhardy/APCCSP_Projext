@@ -1,0 +1,36 @@
+{% extends 'base/base.html' %}
+{% block title %}Victim{% endblock %}
+{% block body %}
+    {% load static %}
+    <div class="row">
+        <div class="col-8">
+            <img class="img-fluid rounded" src="{{ victim.big_photo }}" alt="{{ victim.first_name }} {{ victim.last_name }} Big Photo">
+        </div>
+        <!-- /.col-md-8 -->
+        <div class="col-4">
+            <h1>RIP {{ victim.first_name }} {{ victim.last_name }}</h1>
+            <p>{{ victim.bio }}</p>
+            <a class="btn btn-primary btn-lg" href="{{ victim.source }}">Source</a>
+        </div>
+    </div>
+
+    <hr>
+    <div class="row">
+        <div class="col-md-4">
+            <h2>Video</h2>
+            <div class="embed-responsive embed-responsive-16by9">
+                <iframe class="embed-responsive-item" src="http://www.nbcnews.com/widget/video-embed/896533571884" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <h3>RIP {{ victim.first_name }} <h4>{{ victim.last_name }}</h4></h3>
+            <img class="img-fluid" src="{{ victim.photo_1 }}"/>
+        </div>
+
+        <div class="col-md-4">
+            <h2>Protest</h2>
+            <img class="img-fluid" src="{{ victim.protest_photo }}"/>
+        </div>
+    </div>
+{% endblock %}

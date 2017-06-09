@@ -1,0 +1,32 @@
+{% extends 'base/base.html' %}
+
+{% block title %}Activist{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card" style="width: 20rem;">
+                <img class="card-img-top" src="{{ activist.photo }}" alt="Card image cap">
+                <div class="card-block">
+                    <h4 class="card-title">{{ activist.first_name }}</h4>
+                    <p class="card-text">{{ activist.bio }}</p>
+                    <a href="{{ activist.source }}" class="btn btn-primary">Source</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/OwHvCy-a-Pg" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </div>
+    <div class="row">
+        <!-- Get twitter name-->
+        {% load twitter %}
+        {% twitter activist.twitter_name as twitter_name %}
+        <div class="col-md-4">
+          <a class="twitter-timeline" data-height="900" data-theme="dark" href="https://twitter.com/{{ twitter_name }}">Tweets by kwamerose</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+        </div>
+        <!-- Quotes section-->
+
+    </div>
+
+{% endblock %}

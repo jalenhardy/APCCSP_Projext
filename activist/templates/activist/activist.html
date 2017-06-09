@@ -1,0 +1,20 @@
+{% extends 'base/base.html' %}
+
+{% block title %}Activist{% endblock %}
+
+{% block body %}
+            <div class="row">
+     {% for activist in Activists %}
+            <div class="col-6 col-sm-3">
+                <div class="card card-inverse" style="width: 20rem; background-color: #333; border-color: #333;" >
+                    <img class="card-img-top" src="{{ activist.photo }}" alt="Card image cap">
+                    <div class="card-block">
+                        <h4 class="card-title">{{ activist.first_name }} {{ activist.last_name }}</h4>
+                        <p class="card-text">{{ activist.bio }}</p>
+                        <a href="{% url 'activist:detail' activist.id %}" class="btn btn-primary">Learn More</a>
+                    </div>
+                </div>
+            </div>
+    {% endfor %}
+            </div>
+{% endblock %}
